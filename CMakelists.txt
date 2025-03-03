@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 3.10)
+
+# Set runtime library options
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Release>:Release>Debug$<$<CONFIG:Debug>:Debug>")
+
+project(Practice1)
+set(CMAKE_CXX_STANDARD 17)
+
+# Collect source files
+file(GLOB_RECURSE MY_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
+
+# Create executable
+add_executable(Practice1 "${MY_SOURCES}")
+
+# Include directories
+target_include_directories(Practice1 PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include/")
